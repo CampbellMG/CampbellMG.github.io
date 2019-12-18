@@ -67,16 +67,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         }
         CardBadges.prototype.render = function () {
             return __awaiter(this, void 0, void 0, function () {
-                var energy;
+                var energy, energyLabel;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, this.cardStorage.getValue("energy")];
                         case 1:
                             energy = _a.sent();
+                            return [4 /*yield*/, this.getEnergyLabel()];
+                        case 2:
+                            energyLabel = _a.sent();
                             if (energy) {
                                 return [2 /*return*/, [{
                                             icon: Icons_1.Icons.dark,
-                                            text: energy + " kJ"
+                                            text: energy + " " + energyLabel
                                         }]];
                             }
                             return [2 /*return*/, []];

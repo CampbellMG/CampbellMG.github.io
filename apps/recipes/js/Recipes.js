@@ -4,7 +4,7 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./handlers/CardButtons", "./handlers/CardBadges", "./handlers/BoardButtons"], factory);
+        define(["require", "exports", "./handlers/CardButtons", "./handlers/CardBadges", "./handlers/BoardButtons", "./handlers/BoardSettings"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -12,13 +12,15 @@
     var CardButtons_1 = require("./handlers/CardButtons");
     var CardBadges_1 = require("./handlers/CardBadges");
     var BoardButtons_1 = require("./handlers/BoardButtons");
+    var BoardSettings_1 = require("./handlers/BoardSettings");
     var Recipes = /** @class */ (function () {
         function Recipes(powerUp) {
             this.powerUp = powerUp;
             this.powerUp.initialize({
                 "card-buttons": function (trello) { return new CardButtons_1.CardButtons(trello).render(); },
                 "card-badges": function (trello) { return new CardBadges_1.CardBadges(trello).render(); },
-                "board-buttons": function (trello) { return new BoardButtons_1.BoardButtons(trello).render(); }
+                "board-buttons": function (trello) { return new BoardButtons_1.BoardButtons(trello).render(); },
+                "show-settings": function (trello) { return new BoardSettings_1.BoardSettings(trello).render(); }
             });
         }
         return Recipes;

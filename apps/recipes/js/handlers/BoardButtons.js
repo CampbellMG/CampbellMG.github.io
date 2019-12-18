@@ -128,24 +128,28 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         }
         BoardButtons.prototype.render = function () {
             return __awaiter(this, void 0, void 0, function () {
-                var energyListId, _a, listEnergyButton, remainingEnergyButton, addGroceryButton, refreshButton;
-                return __generator(this, function (_b) {
-                    switch (_b.label) {
+                var energyListId, _a, _b, listEnergyButton, remainingEnergyButton, addGroceryButton, refreshButton;
+                return __generator(this, function (_c) {
+                    switch (_c.label) {
                         case 0: return [4 /*yield*/, this.boardStorage.getValue("energyList")];
                         case 1:
-                            energyListId = _b.sent();
-                            if (!energyListId) return [3 /*break*/, 3];
+                            energyListId = _c.sent();
                             _a = this;
-                            return [4 /*yield*/, this.getEnergyTotal(energyListId)];
+                            return [4 /*yield*/, this.getEnergyLabel()];
                         case 2:
-                            _a.energyTotal = _b.sent();
-                            _b.label = 3;
-                        case 3: return [4 /*yield*/, this.getListEnergyButton()];
-                        case 4:
-                            listEnergyButton = _b.sent();
-                            return [4 /*yield*/, this.getRemainingEnergyButton()];
+                            _a.energyLabel = _c.sent();
+                            if (!energyListId) return [3 /*break*/, 4];
+                            _b = this;
+                            return [4 /*yield*/, this.getEnergyTotal(energyListId)];
+                        case 3:
+                            _b.energyTotal = _c.sent();
+                            _c.label = 4;
+                        case 4: return [4 /*yield*/, this.getListEnergyButton()];
                         case 5:
-                            remainingEnergyButton = _b.sent();
+                            listEnergyButton = _c.sent();
+                            return [4 /*yield*/, this.getRemainingEnergyButton()];
+                        case 6:
+                            remainingEnergyButton = _c.sent();
                             addGroceryButton = this.getAddGroceryButton();
                             refreshButton = this.getRefreshButton();
                             return [2 /*return*/, [
@@ -162,7 +166,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             return __awaiter(this, void 0, void 0, function () {
                 var _this = this;
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, this.getBoardButton(this.energyTotal !== undefined ? "Total: " + this.energyTotal + " kJ" : "Select list", this.renderListSelect(function (id, trello) {
+                    return [2 /*return*/, this.getBoardButton(this.energyTotal !== undefined ? "Total: " + this.energyTotal + " " + this.energyLabel : "Select list", this.renderListSelect(function (id, trello) {
                             _this.boardStorage.setValue("energyList", id);
                             trello.closePopup();
                         }))];
@@ -175,13 +179,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            energyInput = new TextInput_1.TextInput("Set energy goal", BoardButtons.getGoalInputText, this.onSubmit);
+                            energyInput = new TextInput_1.TextInput("Set energy goal", this.getGoalInputText, this.onSubmit);
                             return [4 /*yield*/, this.boardStorage.getValue("energyGoal")];
                         case 1:
                             energyGoal = _a.sent();
                             text = "Set energy goal";
                             if (this.energyTotal !== undefined && energyGoal !== undefined) {
-                                text = "Remaining: " + (energyGoal - this.energyTotal) + " kJ";
+                                text = "Remaining: " + (energyGoal - this.energyTotal) + " " + this.energyLabel;
                             }
                             return [2 /*return*/, this.getBoardButton(text, energyInput.render)];
                     }
@@ -239,8 +243,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                 }); }
             };
         };
-        BoardButtons.getGoalInputText = function (newGoal) {
-            return isNaN(parseFloat(newGoal)) ? 'Enter a number to set energy' : "Set goal to " + newGoal + " kJ";
+        BoardButtons.prototype.getGoalInputText = function (newGoal) {
+            return isNaN(parseFloat(newGoal)) ? 'Enter a number to set energy' : "Set goal to " + newGoal + " " + this.energyLabel;
         };
         return BoardButtons;
     }(CapabilityHandler_1.CapabilityHandler));

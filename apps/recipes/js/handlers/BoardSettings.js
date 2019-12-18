@@ -1,3 +1,16 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -40,41 +53,43 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "../storage/CardStorage", "../storage/BoardStorage"], factory);
+        define(["require", "exports", "./CapabilityHandler", "../storage/BoardStorage"], factory);
     }
 })(function (require, exports) {
     "use strict";
     exports.__esModule = true;
-    var CardStorage_1 = require("../storage/CardStorage");
+    var CapabilityHandler_1 = require("./CapabilityHandler");
     var BoardStorage_1 = require("../storage/BoardStorage");
-    var CapabilityHandler = /** @class */ (function () {
-        function CapabilityHandler(trello) {
-            this.trello = trello;
-            this.cardStorage = new CardStorage_1.CardStorage(trello);
-            this.boardStorage = new BoardStorage_1.BoardStorage(trello);
+    var BoardSettings = /** @class */ (function (_super) {
+        __extends(BoardSettings, _super);
+        function BoardSettings() {
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.setEnergyLabel = function (type) {
+                return function (trello) { return new BoardStorage_1.BoardStorage(trello).setValue("energyLabel", type === "Kilojoules" ? 'kJ' : 'cal'); };
+            };
+            return _this;
         }
-        CapabilityHandler.prototype.refresh = function () {
+        BoardSettings.prototype.render = function () {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, this.boardStorage.setValue("refresh", Math.random())];
+                    return [2 /*return*/, this.trello.popup({
+                            title: "Set energy type",
+                            items: [
+                                this.renderListItem("Kilojoules"),
+                                this.renderListItem("Calories")
+                            ]
+                        })];
                 });
             });
         };
-        CapabilityHandler.prototype.getEnergyLabel = function () {
-            return __awaiter(this, void 0, void 0, function () {
-                var energyLabel;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.boardStorage.getValue("energyLabel")];
-                        case 1:
-                            energyLabel = _a.sent();
-                            return [2 /*return*/, energyLabel ? energyLabel : 'kJ'];
-                    }
-                });
-            });
+        BoardSettings.prototype.renderListItem = function (type) {
+            return {
+                text: type,
+                callback: this.setEnergyLabel(type)
+            };
         };
-        return CapabilityHandler;
-    }());
-    exports.CapabilityHandler = CapabilityHandler;
+        return BoardSettings;
+    }(CapabilityHandler_1.CapabilityHandler));
+    exports.BoardSettings = BoardSettings;
 });
-//# sourceMappingURL=CapabilityHandler.js.map
+//# sourceMappingURL=BoardSettings.js.map

@@ -89,27 +89,31 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         }
         CardButtons.prototype.render = function () {
             return __awaiter(this, void 0, void 0, function () {
-                var energy;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
+                var energy, _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
                         case 0: return [4 /*yield*/, this.cardStorage.getValue("energy")];
                         case 1:
-                            energy = _a.sent();
+                            energy = _b.sent();
+                            _a = this;
+                            return [4 /*yield*/, this.getEnergyLabel()];
+                        case 2:
+                            _a.energyLabel = _b.sent();
                             return [2 /*return*/, [this.getButton(energy)]];
                     }
                 });
             });
         };
         CardButtons.prototype.getButton = function (energy) {
-            var energyInput = new TextInput_1.TextInput('Set Energy', CardButtons.getInputText, this.onSubmit);
+            var energyInput = new TextInput_1.TextInput('Set Energy', this.getInputText, this.onSubmit);
             return {
                 icon: Icons_1.Icons.dark,
-                text: energy ? "Energy: " + energy + " kJ" : 'Set energy',
+                text: energy ? "Energy: " + energy + " " + this.energyLabel : 'Set energy',
                 callback: this.trello.memberCanWriteToModel('card') ? energyInput.render : Functions_1.ANOOP
             };
         };
-        CardButtons.getInputText = function (newEnergy) {
-            return isNaN(parseFloat(newEnergy)) ? 'Enter a number to set energy' : "Set energy to " + newEnergy + " kJ";
+        CardButtons.prototype.getInputText = function (newEnergy) {
+            return isNaN(parseFloat(newEnergy)) ? 'Enter a number to set energy' : "Set energy to " + newEnergy + " " + this.energyLabel;
         };
         return CardButtons;
     }(CapabilityHandler_1.CapabilityHandler));
