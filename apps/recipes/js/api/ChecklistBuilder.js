@@ -58,17 +58,18 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports"], factory);
+        define(["require", "exports", "./GroceryAggregator"], factory);
     }
 })(function (require, exports) {
     "use strict";
     exports.__esModule = true;
+    var GroceryAggregator_1 = require("./GroceryAggregator");
     var ChecklistBuilder = /** @class */ (function () {
         function ChecklistBuilder(client, trello) {
             var _this = this;
             this.token = "";
             this.createList = function () { return __awaiter(_this, void 0, void 0, function () {
-                var cards, checkLists, checkItems, newCard, checkList;
+                var cards, checkLists, checkItems, aggregator, newCard, checkList;
                 var _this = this;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
@@ -88,13 +89,14 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
                             checkItems = checkLists.reduce(function (prev, current) {
                                 return __spreadArrays(prev, current.checkItems);
                             }, []);
+                            aggregator = new GroceryAggregator_1.GroceryAggregator(checkItems);
                             return [4 /*yield*/, this.createCard()];
                         case 3:
                             newCard = _a.sent();
                             return [4 /*yield*/, this.createChecklist(newCard.id)];
                         case 4:
                             checkList = _a.sent();
-                            return [4 /*yield*/, Promise.all(checkItems.map(function (checkItem) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
+                            return [4 /*yield*/, Promise.all(aggregator.getListItems().map(function (checkItem) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
                                     switch (_a.label) {
                                         case 0: return [4 /*yield*/, this.addChecklistItem(checkList.id, checkItem.name)];
                                         case 1: return [2 /*return*/, _a.sent()];
