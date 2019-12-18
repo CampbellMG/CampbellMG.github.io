@@ -65,7 +65,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         function BoardSettings() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
             _this.setEnergyLabel = function (type) {
-                return function (trello) { return new BoardStorage_1.BoardStorage(trello).setValue("energyLabel", type === "Kilojoules" ? 'kJ' : 'cal'); };
+                return function (trello) { return __awaiter(_this, void 0, void 0, function () {
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0: return [4 /*yield*/, new BoardStorage_1.BoardStorage(trello).setValue("energyLabel", type === "Kilojoules" ? 'kJ' : 'cal')];
+                            case 1:
+                                _a.sent();
+                                return [2 /*return*/, trello.closePopup()];
+                        }
+                    });
+                }); };
             };
             return _this;
         }
