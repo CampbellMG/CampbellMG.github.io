@@ -66,6 +66,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         __extends(CardButtons, _super);
         function CardButtons() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.getInputText = function (newEnergy) {
+                return isNaN(parseFloat(newEnergy)) ? 'Enter a number to set energy' : "Set energy to " + newEnergy + " " + _this.energyLabel;
+            };
             _this.onSubmit = function (newEnergy) { return function (trello) { return __awaiter(_this, void 0, void 0, function () {
                 var parsedEnergy;
                 return __generator(this, function (_a) {
@@ -111,9 +114,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                 text: energy ? "Energy: " + energy + " " + this.energyLabel : 'Set energy',
                 callback: this.trello.memberCanWriteToModel('card') ? energyInput.render : Functions_1.ANOOP
             };
-        };
-        CardButtons.prototype.getInputText = function (newEnergy) {
-            return isNaN(parseFloat(newEnergy)) ? 'Enter a number to set energy' : "Set energy to " + newEnergy + " " + this.energyLabel;
         };
         return CardButtons;
     }(CapabilityHandler_1.CapabilityHandler));

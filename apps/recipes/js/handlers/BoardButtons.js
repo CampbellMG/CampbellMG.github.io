@@ -100,6 +100,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                     }
                 });
             }); }; };
+            _this.getGoalInputText = function (newGoal) {
+                return isNaN(parseFloat(newGoal)) ? 'Enter a number to set energy' : "Set goal to " + newGoal + " " + _this.energyLabel;
+            };
             _this.onSubmit = function (newGoal) { return function (trello) { return __awaiter(_this, void 0, void 0, function () {
                 var parsedGoal;
                 return __generator(this, function (_a) {
@@ -242,9 +245,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                     });
                 }); }
             };
-        };
-        BoardButtons.prototype.getGoalInputText = function (newGoal) {
-            return isNaN(parseFloat(newGoal)) ? 'Enter a number to set energy' : "Set goal to " + newGoal + " " + this.energyLabel;
         };
         return BoardButtons;
     }(CapabilityHandler_1.CapabilityHandler));
