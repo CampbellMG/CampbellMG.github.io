@@ -103,7 +103,6 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
                         case 5:
                             if (!(_i < listItems_1.length)) return [3 /*break*/, 8];
                             listItem = listItems_1[_i];
-                            console.log(listItem);
                             return [4 /*yield*/, this.addChecklistItem(checkList.id, listItem)];
                         case 6:
                             _a.sent();

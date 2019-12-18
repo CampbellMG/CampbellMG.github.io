@@ -40,6 +40,7 @@
         GroceryAggregator.prototype.getListItems = function () {
             this.listItems.forEach(this.parseIngredients);
             this.mapQuantityMapToResults();
+            this.results.sort();
             return this.results;
         };
         GroceryAggregator.prototype.mapQuantityMapToResults = function () {
