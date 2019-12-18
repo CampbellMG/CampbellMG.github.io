@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://cmgcode.com/</loc>
+    <lastmod>2019-12-19T01:14:34+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cmgcode.com/portfolio/recipes/</loc>
+    <lastmod>2019-12-19T01:14:34+06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://cmgcode.com/about/</loc>
     <lastmod>2019-05-12T12:14:34+06:00</lastmod>
   </url>
@@ -14,11 +24,6 @@
   
   <url>
     <loc>https://cmgcode.com/portfolio/barebonesxml/privacy/</loc>
-    <lastmod>2019-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cmgcode.com/</loc>
     <lastmod>2019-05-12T12:14:34+06:00</lastmod>
   </url>
   
