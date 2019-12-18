@@ -86,9 +86,11 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
                                 }); }); }))];
                         case 2:
                             checkLists = _a.sent();
-                            checkItems = checkLists.reduce(function (prev, current) {
+                            checkItems = checkLists
+                                .reduce(function (prev, current) {
                                 return __spreadArrays(prev, current.checkItems);
-                            }, []);
+                            }, [])
+                                .map(function (checkItem) { return checkItem.name; });
                             aggregator = new GroceryAggregator_1.GroceryAggregator(checkItems);
                             return [4 /*yield*/, this.createCard()];
                         case 3:
@@ -96,9 +98,9 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
                             return [4 /*yield*/, this.createChecklist(newCard.id)];
                         case 4:
                             checkList = _a.sent();
-                            return [4 /*yield*/, Promise.all(aggregator.getListItems().map(function (checkItem) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
+                            return [4 /*yield*/, Promise.all(aggregator.getListItems().map(function (listItem) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
                                     switch (_a.label) {
-                                        case 0: return [4 /*yield*/, this.addChecklistItem(checkList.id, checkItem.name)];
+                                        case 0: return [4 /*yield*/, this.addChecklistItem(checkList.id, listItem)];
                                         case 1: return [2 /*return*/, _a.sent()];
                                     }
                                 }); }); }))];
