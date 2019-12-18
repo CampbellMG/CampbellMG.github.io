@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Portfolio on CMG Code</title>
+    <link>https://cmgcode.com/portfolio/</link>
+    <description>Recent content in Portfolio on CMG Code</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 May 2019 12:14:34 +0600</lastBuildDate>
+    
+	<atom:link href="https://cmgcode.com/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Barebones XML</title>
+      <link>https://cmgcode.com/portfolio/barebonesxml/</link>
+      <pubDate>Sun, 12 May 2019 12:14:34 +0600</pubDate>
+      
+      <guid>https://cmgcode.com/portfolio/barebonesxml/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+    </item>
+    
+    <item>
+      <title>Barebones XML Privacy</title>
+      <link>https://cmgcode.com/portfolio/barebonesxml/privacy/</link>
+      <pubDate>Sun, 12 May 2019 12:14:34 +0600</pubDate>
+      
+      <guid>https://cmgcode.com/portfolio/barebonesxml/privacy/</guid>
+      <description>Privacy Policy CMG Code built the Barebones XML app as a Free app.</description>
+    </item>
+    
+    <item>
+      <title>My Meal Checker</title>
+      <link>https://cmgcode.com/portfolio/mymealchecker/</link>
+      <pubDate>Sun, 12 May 2019 12:14:34 +0600</pubDate>
+      
+      <guid>https://cmgcode.com/portfolio/mymealchecker/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+    </item>
+    
+    <item>
+      <title>My Meal Checker Privacy</title>
+      <link>https://cmgcode.com/portfolio/mymealchecker/privacy/</link>
+      <pubDate>Sun, 12 May 2019 12:14:34 +0600</pubDate>
+      
+      <guid>https://cmgcode.com/portfolio/mymealchecker/privacy/</guid>
+      <description>Privacy Policy CMG Code built the My Meal Checker app as a Free app.</description>
+    </item>
+    
+    <item>
+      <title>Recipes</title>
+      <link>https://cmgcode.com/portfolio/recipes/</link>
+      <pubDate>Sun, 12 May 2019 12:14:34 +0600</pubDate>
+      
+      <guid>https://cmgcode.com/portfolio/recipes/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+    </item>
+    
+    <item>
+      <title>Recipes Privacy</title>
+      <link>https://cmgcode.com/portfolio/recipes/privacy/</link>
+      <pubDate>Sun, 12 May 2019 12:14:34 +0600</pubDate>
+      
+      <guid>https://cmgcode.com/portfolio/recipes/privacy/</guid>
+      <description>Privacy Policy CMG Code built the Recipes plugin as a Free app.</description>
+    </item>
+    
+    <item>
+      <title>RegExOff</title>
+      <link>https://cmgcode.com/portfolio/regexoff/</link>
+      <pubDate>Sun, 12 May 2019 12:14:34 +0600</pubDate>
+      
+      <guid>https://cmgcode.com/portfolio/regexoff/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+    </item>
+    
+    <item>
+      <title>RegExOff Privacy</title>
+      <link>https://cmgcode.com/portfolio/regexoff/privacy/</link>
+      <pubDate>Sun, 12 May 2019 12:14:34 +0600</pubDate>
+      
+      <guid>https://cmgcode.com/portfolio/regexoff/privacy/</guid>
+      <description>Privacy Policy CMG Code built the RegExOff app as a Free app.</description>
+    </item>
+    
+  </channel>
+</rss>
