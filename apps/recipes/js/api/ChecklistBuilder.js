@@ -69,7 +69,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
             var _this = this;
             this.token = "";
             this.createList = function () { return __awaiter(_this, void 0, void 0, function () {
-                var cards, checkLists, checkItems, aggregator, newCard, checkList;
+                var cards, checkLists, checkItems, aggregator, result, newCard, checkList;
                 var _this = this;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
@@ -92,6 +92,8 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
                             }, [])
                                 .map(function (checkItem) { return checkItem.name; });
                             aggregator = new GroceryAggregator_1.GroceryAggregator(checkItems);
+                            result = aggregator.getListItems();
+                            console.log(result);
                             return [4 /*yield*/, this.createCard()];
                         case 3:
                             newCard = _a.sent();
