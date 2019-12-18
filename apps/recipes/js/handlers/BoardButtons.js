@@ -216,16 +216,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                                                 _a = [__assign({}, card)];
                                                 _b = {};
                                                 return [4 /*yield*/, new CardStorage_1.CardStorage(this.trello, card.id).getValue("energy")];
-                                            case 1:
-                                                _b.energy = _c.sent();
-                                                return [4 /*yield*/, new CardStorage_1.CardStorage(this.trello, card.id).getValue("costs")];
-                                            case 2: return [2 /*return*/, (__assign.apply(void 0, _a.concat([(_b.costs = _c.sent(), _b)])))];
+                                            case 1: return [2 /*return*/, (__assign.apply(void 0, _a.concat([(_b.energy = _c.sent(), _b)])))];
                                         }
                                     });
                                 }); }))];
                         case 2:
                             cardsWithEnergy = _a.sent();
-                            console.log(cardsWithEnergy);
                             return [2 /*return*/, cardsWithEnergy.reduce(this.reduceCardsToEnergy(energyListId), 0)];
                     }
                 });
