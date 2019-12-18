@@ -69,7 +69,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
             var _this = this;
             this.token = "";
             this.createList = function () { return __awaiter(_this, void 0, void 0, function () {
-                var cards, checkLists, checkItems, aggregator, result, newCard, checkList;
+                var cards, checkLists, checkItems, listItems, newCard, checkList, _i, listItems_1, listItem;
                 var _this = this;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
@@ -91,24 +91,27 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
                                 return __spreadArrays(prev, current.checkItems);
                             }, [])
                                 .map(function (checkItem) { return checkItem.name; });
-                            aggregator = new GroceryAggregator_1.GroceryAggregator(checkItems);
-                            result = aggregator.getListItems();
-                            console.log(result);
+                            listItems = new GroceryAggregator_1.GroceryAggregator(checkItems).getListItems();
                             return [4 /*yield*/, this.createCard()];
                         case 3:
                             newCard = _a.sent();
                             return [4 /*yield*/, this.createChecklist(newCard.id)];
                         case 4:
                             checkList = _a.sent();
-                            return [4 /*yield*/, Promise.all(aggregator.getListItems().map(function (listItem) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
-                                    switch (_a.label) {
-                                        case 0: return [4 /*yield*/, this.addChecklistItem(checkList.id, listItem)];
-                                        case 1: return [2 /*return*/, _a.sent()];
-                                    }
-                                }); }); }))];
+                            _i = 0, listItems_1 = listItems;
+                            _a.label = 5;
                         case 5:
+                            if (!(_i < listItems_1.length)) return [3 /*break*/, 8];
+                            listItem = listItems_1[_i];
+                            console.log(listItem);
+                            return [4 /*yield*/, this.addChecklistItem(checkList.id, listItem)];
+                        case 6:
                             _a.sent();
-                            return [2 /*return*/, this.trello.closePopup()];
+                            _a.label = 7;
+                        case 7:
+                            _i++;
+                            return [3 /*break*/, 5];
+                        case 8: return [2 /*return*/, this.trello.closePopup()];
                     }
                 });
             }); };
