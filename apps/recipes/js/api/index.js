@@ -12,7 +12,7 @@
     var ChecklistBuilder_1 = require("./ChecklistBuilder");
     new ChecklistBuilder_1.ChecklistBuilder(window.Trello, window.TrelloPowerUp.iframe({
         appKey: "6890595d33d989e3c7c373b127a68cb7",
-        appName: "Meal prep"
+        appName: "Recipes"
     })).addList();
 });
 //# sourceMappingURL=index.js.map
