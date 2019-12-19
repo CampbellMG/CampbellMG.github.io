@@ -177,21 +177,27 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
         }
         ChecklistBuilder.prototype.addList = function () {
             return __awaiter(this, void 0, void 0, function () {
-                var token;
+                var token, e_2;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, this.trello.getRestApi().getToken()];
                         case 1:
                             token = _a.sent();
-                            if (!!token) return [3 /*break*/, 4];
-                            return [4 /*yield*/, this.trello.getRestApi().authorize({ scope: 'read,write' })];
+                            if (!!token) return [3 /*break*/, 6];
+                            _a.label = 2;
                         case 2:
+                            _a.trys.push([2, 5, , 6]);
+                            return [4 /*yield*/, this.trello.getRestApi().authorize({ scope: 'read,write' })];
+                        case 3:
                             _a.sent();
                             return [4 /*yield*/, this.trello.getRestApi().getToken()];
-                        case 3:
-                            token = _a.sent();
-                            _a.label = 4;
                         case 4:
+                            token = _a.sent();
+                            return [3 /*break*/, 6];
+                        case 5:
+                            e_2 = _a.sent();
+                            return [3 /*break*/, 6];
+                        case 6:
                             if (token) {
                                 this.token = token;
                                 return [2 /*return*/, this.createList()];
