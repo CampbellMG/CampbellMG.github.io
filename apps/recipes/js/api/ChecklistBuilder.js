@@ -69,11 +69,13 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
             var _this = this;
             this.token = "";
             this.createList = function () { return __awaiter(_this, void 0, void 0, function () {
-                var cards, checkLists, checkItems, listItems, newCard, checkList, _i, listItems_1, listItem;
+                var cards, checkLists, checkItems, listItems, newCard, checkList, _i, listItems_1, listItem, e_1;
                 var _this = this;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, this.getCards()];
+                        case 0:
+                            _a.trys.push([0, 9, , 10]);
+                            return [4 /*yield*/, this.getCards()];
                         case 1:
                             cards = _a.sent();
                             return [4 /*yield*/, Promise.all(cards
@@ -110,7 +112,11 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
                         case 7:
                             _i++;
                             return [3 /*break*/, 5];
-                        case 8: return [2 /*return*/, this.trello.closePopup()];
+                        case 8: return [3 /*break*/, 10];
+                        case 9:
+                            e_1 = _a.sent();
+                            return [3 /*break*/, 10];
+                        case 10: return [2 /*return*/, this.trello.closePopup()];
                     }
                 });
             }); };
@@ -186,8 +192,11 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
                             token = _a.sent();
                             _a.label = 4;
                         case 4:
-                            this.token = token;
-                            return [2 /*return*/, this.createList()];
+                            if (token) {
+                                this.token = token;
+                                return [2 /*return*/, this.createList()];
+                            }
+                            return [2 /*return*/, this.trello.closePopup()];
                     }
                 });
             });
