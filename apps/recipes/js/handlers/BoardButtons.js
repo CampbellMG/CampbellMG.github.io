@@ -134,7 +134,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                 var energyListId, _a, _b, listEnergyButton, remainingEnergyButton, addGroceryButton, refreshButton;
                 return __generator(this, function (_c) {
                     switch (_c.label) {
-                        case 0: return [4 /*yield*/, this.boardStorage.getValue("energyList")];
+                        case 0:
+                            console.log('Render called');
+                            return [4 /*yield*/, this.boardStorage.getValue("energyList")];
                         case 1:
                             energyListId = _c.sent();
                             _a = this;
