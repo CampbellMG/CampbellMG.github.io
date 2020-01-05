@@ -132,6 +132,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         BoardButtons.prototype.render = function () {
             return __awaiter(this, void 0, void 0, function () {
                 var energyListId, _a, _b, listEnergyButton, remainingEnergyButton, addGroceryButton, refreshButton;
+                var _this = this;
                 return __generator(this, function (_c) {
                     switch (_c.label) {
                         case 0:
@@ -161,7 +162,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                                     listEnergyButton,
                                     remainingEnergyButton,
                                     addGroceryButton,
-                                    refreshButton
+                                    refreshButton,
+                                    {
+                                        text: "" + new Date(),
+                                        icon: Icons_1.Icons,
+                                        condition: 'always',
+                                        callback: function () { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
+                                            return [2 /*return*/, console.log('Hello')];
+                                        }); }); }
+                                    }
                                 ]];
                     }
                 });
