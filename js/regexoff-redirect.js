@@ -1,3 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    window.location.assign("regexoff://pattern?id=tGdcaNmkZ9zDbo23XM8Y")
+    var params = decodeURIComponent(document.location.search);
+    if (params && params.indexOf("pattern=") !== -1) {
+        window.location.assign("regexoff://" + params)
+    }
 });
