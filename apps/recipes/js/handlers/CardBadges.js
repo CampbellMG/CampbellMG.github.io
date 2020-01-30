@@ -77,6 +77,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                         case 2:
                             energyLabel = _a.sent();
                             if (energy) {
+                                this.refresh();
                                 return [2 /*return*/, [{
                                             icon: Icons_1.Icons.dark,
                                             text: energy + " " + energyLabel
