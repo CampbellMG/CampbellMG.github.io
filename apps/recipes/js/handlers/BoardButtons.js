@@ -131,10 +131,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         }
         BoardButtons.prototype.render = function () {
             return __awaiter(this, void 0, void 0, function () {
-                var energyListId, _a, _b, listEnergyButton, remainingEnergyButton, addGroceryButton;
+                var energyListId, _a, _b, listEnergyButton, remainingEnergyButton, addGroceryButton, refreshButton;
+                var _this = this;
                 return __generator(this, function (_c) {
                     switch (_c.label) {
-                        case 0: return [4 /*yield*/, this.boardStorage.getValue("energyList")];
+                        case 0:
+                            console.log('Render called');
+                            return [4 /*yield*/, this.boardStorage.getValue("energyList")];
                         case 1:
                             energyListId = _c.sent();
                             _a = this;
@@ -154,10 +157,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                         case 6:
                             remainingEnergyButton = _c.sent();
                             addGroceryButton = this.getAddGroceryButton();
+                            refreshButton = this.getRefreshButton();
                             return [2 /*return*/, [
                                     listEnergyButton,
                                     remainingEnergyButton,
-                                    addGroceryButton
+                                    addGroceryButton,
+                                    refreshButton,
+                                    {
+                                        text: "" + new Date(),
+                                        icon: Icons_1.Icons,
+                                        condition: 'always',
+                                        callback: function () { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
+                                            return [2 /*return*/, console.log('Hello')];
+                                        }); }); }
+                                    }
                                 ]];
                     }
                 });
@@ -199,6 +212,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                 title: 'Authorise',
                 args: { listId: id }
             }); }));
+        };
+        BoardButtons.prototype.getRefreshButton = function () {
+            var _this = this;
+            return this.getBoardButton("Refresh", function () { return _this.refresh(); });
         };
         BoardButtons.prototype.getEnergyTotal = function (energyListId) {
             return __awaiter(this, void 0, void 0, function () {
